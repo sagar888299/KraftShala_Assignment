@@ -121,7 +121,7 @@ export default function Home() {
             />
             <button
               type="submit"
-              className="dark:text-white absolute right-3 bottom-3 bg-gary-400 dark:bg-gray-700 border focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base sm:text-lg px-2 py-3 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 lg:px-5 "
+              className="dark:text-white absolute right-3 bottom-3 bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 font-medium rounded-lg py-3 lg:px-5 "
             >
               ADD CITY
             </button>
@@ -151,7 +151,7 @@ export default function Home() {
               src={moon}
               alt="Dark mode"
               className={`w-6 h-6 ml-3 mt-1 text-gray-100 dark:text-gray-400 ${
-                darkMode ? "block text-white" : "hidden"
+                darkMode ? "block invert" : "hidden"
               }`}
             />
           </label>
