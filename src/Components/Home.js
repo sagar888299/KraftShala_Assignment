@@ -4,6 +4,7 @@ import { getWeatherImage } from "../utils/getWeatherImage";
 import { suns, moon, search } from "../Assets/Svg";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import CardSkeleton from "./CardSkeleton";
 
 const apikey = "92df510d87771d3c5fd7268ad8085754";
 const apiurl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
@@ -11,6 +12,7 @@ const apiurl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q="
 export default function Home() {
   const [city, setCity] = useState("");
   const [cities, setCities] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
 
   const handleSearchChange = (e) => {
@@ -23,6 +25,7 @@ export default function Home() {
       toast.warn("City already added!");
       return;
     }
+    setIsLoading(true);
     try {
       const response = await axios.get(apiurl + city + `&appid=${apikey}`);
       setCities([...cities, response.data]);
@@ -31,6 +34,8 @@ export default function Home() {
     } catch (error) {
       console.error("Error fetching the weather data:", error);
       toast.error("Error fetching the weather data!");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -234,6 +239,9 @@ export default function Home() {
             </div>
           </div>
         ))}
+        {isLoading && (
+         <CardSkeleton/>
+        )}
       </div>
     </div>
   );

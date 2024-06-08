@@ -10,12 +10,14 @@ Features
 - Automatically updates weather data every 60 seconds.
 - Displays weather details including temperature, humidity, wind speed, visibility, and local time.
 - Toast notifications for successful actions and error handling.
+- React skeleton for loading states.
 
 Technologies Used
 - React
 - Axios
 - OpenWeatherMap API
 - React Toastify
+- React Skeleton
 - Tailwind CSS
 
 Installation
